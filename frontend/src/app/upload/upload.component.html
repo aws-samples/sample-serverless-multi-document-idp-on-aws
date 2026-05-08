@@ -1,0 +1,50 @@
+<mat-card class="header-card" appearance="outlined">
+  <mat-card-content>
+    <h2 class="header-title">Upload Document</h2>
+    <p class="header-description">
+      Upload your documents and let our system do the heavy lifting. Our intelligent processing engine
+      automatically categorizes your files, extracts relevant information, and prepares them for analysis.
+    </p>
+  </mat-card-content>
+</mat-card>
+
+<mat-card class="upload-card" appearance="outlined" *ngIf="!fileUploadStatus">
+  <mat-card-content>
+    <div class="upload-zone" (click)="fileInput.click()"
+         [class.has-file]="selectedFile"
+         [class.has-error]="errorMessage">
+      <mat-icon class="upload-zone-icon">cloud_upload</mat-icon>
+      <p class="upload-label">Click to browse or drag a file here</p>
+      <p class="upload-hint">Supported formats: PDF, PNG, JPEG, TIFF (max {{ maxFileSizeMb }} MB)</p>
+      <input #fileInput type="file" hidden (change)="onFileSelected($event)"
+             accept=".pdf,.jpg,.jpeg,.png,.tiff,.tif" [disabled]="isProcessing" />
+    </div>
+
+    <div *ngIf="selectedFile" class="file-info">
+      <div class="file-info-left">
+        <mat-icon class="file-icon">insert_drive_file</mat-icon>
+        <div class="file-details">
+          <span class="file-name">{{ selectedFile.name }}</span>
+          <span class="file-size">{{ (selectedFile.size / 1024 / 1024).toFixed(2) }} MB</span>
+        </div>
+      </div>
+      <button mat-icon-button (click)="removeFile()" aria-label="Remove file">
+        <mat-icon>close</mat-icon>
+      </button>
+    </div>
+
+    <mat-progress-bar *ngIf="isProcessing" mode="indeterminate" class="upload-progress"></mat-progress-bar>
+
+    <div *ngIf="errorMessage" class="error-banner">
+      <mat-icon>error_outline</mat-icon>
+      <span>{{ errorMessage }}</span>
+    </div>
+
+    <button mat-flat-button color="primary" class="upload-btn"
+            [disabled]="!selectedFile || isProcessing || isFileTooLarge"
+            (click)="uploadFile()">
+      <mat-icon>cloud_upload</mat-icon>
+      {{ isProcessing ? 'Uploading...' : 'Upload Document' }}
+    </button>
+  </mat-card-content>
+</mat-card>

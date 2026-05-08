@@ -1,0 +1,35 @@
+{
+  "name": "idp-workshop-infra",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "build": "tsc",
+    "cdk": "cdk",
+    "test": "jest",
+    "ensure-esbuild": "node -e \"try { require.resolve('esbuild'); } catch { console.error('esbuild not found — run npm install in infra/ before synth/deploy. Bundling must be local; Docker/Finch is disabled.'); process.exit(1); }\"",
+    "presynth": "npm run ensure-esbuild",
+    "predeploy": "npm run ensure-esbuild",
+    "deploy": "cdk deploy --all --require-approval never",
+    "destroy": "cdk destroy --all --force",
+    "synth": "cdk synth"
+  },
+  "dependencies": {
+    "@aws-lambda-powertools/logger": "^2.19.0",
+    "@aws-sdk/client-bedrock-data-automation-runtime": "^3.800.0",
+    "@aws-sdk/client-dynamodb": "^3.800.0",
+    "@aws-sdk/client-s3": "^3.800.0",
+    "aws-cdk-lib": "^2.190.0",
+    "cdk-nag": "^2.38.1",
+    "constructs": "^10.4.2",
+    "source-map-support": "^0.5.21"
+  },
+  "devDependencies": {
+    "@types/jest": "^29.5.14",
+    "aws-cdk": "^2.190.0",
+    "esbuild": "^0.25.0",
+    "jest": "^29.7.0",
+    "ts-jest": "^29.2.5",
+    "ts-node": "^10.9.2",
+    "typescript": "~5.7.0"
+  }
+}

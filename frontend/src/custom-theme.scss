@@ -1,0 +1,14 @@
+@use '@angular/material' as mat;
+
+// Cloudscape-inspired theme
+html {
+  @include mat.theme((
+    color: (
+      theme-type: light,
+      primary: mat.$azure-palette,
+      tertiary: mat.$violet-palette,
+    ),
+    typography: Roboto,
+    density: 0,
+  ));
+}

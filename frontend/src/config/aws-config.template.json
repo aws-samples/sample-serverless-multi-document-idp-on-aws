@@ -1,0 +1,25 @@
+{
+  "Auth": {
+    "Cognito": {
+      "userPoolId": "PLACEHOLDER",
+      "userPoolClientId": "PLACEHOLDER",
+      "identityPoolId": "PLACEHOLDER",
+      "loginWith": {
+        "email": true
+      }
+    }
+  },
+  "Storage": {
+    "S3": {
+      "bucket": "PLACEHOLDER",
+      "region": "PLACEHOLDER"
+    }
+  },
+  "API": {
+    "GraphQL": {
+      "endpoint": "PLACEHOLDER",
+      "region": "PLACEHOLDER",
+      "defaultAuthMode": "iam"
+    }
+  }
+}

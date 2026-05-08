@@ -1,0 +1,115 @@
+<!-- Header -->
+<mat-card class="header-card" appearance="outlined" *ngIf="file">
+  <mat-card-content>
+    <div class="header-row">
+      <div>
+        <h2 class="header-title">{{ file.name }}</h2>
+        <div class="header-meta">
+          <span class="status-badge">{{ file.status }}</span>
+          <span class="meta-sep">&middot;</span>
+          <span>{{ getDocumentTypeLabel() }}</span>
+          <span class="meta-sep">&middot;</span>
+          <span>{{ processingTime() }}</span>
+          <span class="meta-sep">&middot;</span>
+          <span>{{ file.userId }}</span>
+        </div>
+      </div>
+      <button mat-stroked-button class="back-btn" (click)="navigateToHome()">
+        <mat-icon>arrow_back</mat-icon>
+        Back to Review
+      </button>
+    </div>
+  </mat-card-content>
+</mat-card>
+
+<div class="detail-layout" *ngIf="file">
+
+  <!-- Document Preview + File Info (collapsible) -->
+  <mat-card class="preview-card" appearance="outlined">
+    <mat-card-content>
+      <div class="preview-header" (click)="showPreview = !showPreview">
+        <h3 class="card-title">
+          <mat-icon>insert_drive_file</mat-icon>
+          Original Document
+        </h3>
+        <div class="preview-header-right">
+          <span class="file-meta-inline">{{ file.contentType }} &middot; {{ file.fileId }}</span>
+          <mat-icon class="expand-icon" [class.expanded]="showPreview">expand_more</mat-icon>
+        </div>
+      </div>
+
+      <div *ngIf="showPreview" class="preview-body">
+        <div class="preview-area" *ngIf="!showIframe">
+          <div class="preview-placeholder" (click)="loadContent(fileUrl)">
+            <mat-icon class="preview-placeholder-icon">picture_as_pdf</mat-icon>
+            <p class="preview-label">Click to preview</p>
+            <span class="preview-hint">{{ file.contentType }}</span>
+          </div>
+        </div>
+        <div class="preview-area" *ngIf="showIframe">
+          <iframe #contentFrame [src]="safeUrl" title="Document preview"></iframe>
+        </div>
+        <div class="preview-toggle">
+          <button mat-stroked-button (click)="loadContent(fileUrl); $event.stopPropagation()" *ngIf="!showIframe && fileUrl">
+            <mat-icon>visibility</mat-icon> Show Preview
+          </button>
+          <button mat-stroked-button (click)="showIframe = false; $event.stopPropagation()" *ngIf="showIframe">
+            <mat-icon>visibility_off</mat-icon> Hide Preview
+          </button>
+        </div>
+        <div class="file-meta-list">
+          <div class="file-meta-row">
+            <span class="meta-label">File ID</span>
+            <span class="meta-value mono">{{ file.fileId }}</span>
+          </div>
+          <div class="file-meta-row">
+            <span class="meta-label">Content Type</span>
+            <span class="meta-value">{{ file.contentType }}</span>
+          </div>
+          <div class="file-meta-row">
+            <span class="meta-label">Created</span>
+            <span class="meta-value">{{ file.createdAt }}</span>
+          </div>
+          <div class="file-meta-row">
+            <span class="meta-label">Updated</span>
+            <span class="meta-value">{{ file.updatedAt }}</span>
+          </div>
+        </div>
+      </div>
+    </mat-card-content>
+  </mat-card>
+
+  <!-- Extracted Data (full width) -->
+  <mat-card class="extracted-card" appearance="outlined" *ngIf="fileData">
+    <mat-card-content>
+      <h3 class="card-title extracted-title">
+        <mat-icon>analytics</mat-icon>
+        Extracted Data
+      </h3>
+
+      <div class="sections-grid">
+        <div *ngFor="let section of getMetadataSections()"
+             class="data-section"
+             [class.data-section-full]="isFullWidthSection(section)">
+          <div class="section-header">
+            <mat-icon class="section-icon">folder_open</mat-icon>
+            <h4 class="section-title">{{ section }}</h4>
+          </div>
+          <div class="field-list">
+            <div *ngFor="let field of getFieldsForSection(section)"
+                 class="field-row"
+                 [class.subject-row]="field.key.startsWith('---')">
+              <span class="field-key">{{ formatKey(field.key) }}</span>
+              <span class="field-value">{{ field.value || '—' }}</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div *ngIf="getMetadataSections().length === 0" class="no-data">
+        <mat-icon>info_outline</mat-icon>
+        <p>No structured data extracted for this document type.</p>
+      </div>
+    </mat-card-content>
+  </mat-card>
+</div>

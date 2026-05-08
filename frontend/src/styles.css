@@ -1,0 +1,65 @@
+/* Global reset */
+*, *::before, *::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  height: 100%;
+  overflow-x: hidden;
+  background-color: #f2f3f3;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+  color: #16191f;
+}
+
+/* Cloudscape-inspired color tokens */
+:root {
+  --cs-color-primary: #0972d3;
+  --cs-color-primary-dark: #033160;
+  --cs-color-primary-light: #e9f3fe;
+  --cs-color-bg-layout: #f2f3f3;
+  --cs-color-bg-container: #ffffff;
+  --cs-color-border: #d5dbdb;
+  --cs-color-text-heading: #16191f;
+  --cs-color-text-body: #414d5c;
+  --cs-color-text-secondary: #5f6b7a;
+  --cs-color-status-success: #037f0c;
+  --cs-color-status-error: #d91515;
+  --cs-color-status-warning: #8d6605;
+  --cs-color-status-info: #0972d3;
+  --cs-sidebar-width: 240px;
+  --cs-sidebar-bg: #0f1b2a;
+  --cs-sidebar-text: #d1d5db;
+  --cs-sidebar-active: #0972d3;
+  --cs-header-height: 48px;
+}
+
+/* Scrollbar styling */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background-color: #aab7b8;
+  border-radius: 4px;
+}
+
+/* Material overrides for Cloudscape feel */
+.mat-mdc-raised-button.mat-primary,
+.mat-mdc-unelevated-button.mat-primary {
+  --mdc-filled-button-container-color: #0972d3;
+}
+
+.mat-mdc-table {
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.mdc-data-table__header-cell {
+  font-weight: 600 !important;
+  color: var(--cs-color-text-heading) !important;
+  background-color: #fafafa !important;
+}

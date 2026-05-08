@@ -1,0 +1,21 @@
+<ng-container *ngIf="authenticator.route === 'authenticated'">
+  <div class="app-shell">
+    <aside class="sidebar">
+      <app-navbar></app-navbar>
+    </aside>
+    <main class="main-content">
+      <app-content></app-content>
+    </main>
+  </div>
+</ng-container>
+
+<ng-container *ngIf="authenticator.route !== 'authenticated'">
+  <div class="auth-page">
+    <amplify-authenticator [hideSignUp]="true">
+      <ng-template amplifySlot="sign-in-header">
+        <h3 class="auth-form-title">Sign in to your account</h3>
+      </ng-template>
+      <ng-template amplifySlot="authenticated" let-user="user" let-signOut="signOut"></ng-template>
+    </amplify-authenticator>
+  </div>
+</ng-container>

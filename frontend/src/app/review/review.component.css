@@ -1,0 +1,137 @@
+.header-card {
+  border-radius: 12px;
+  background: linear-gradient(135deg, #0f1b2a 0%, #0a3a6b 100%);
+  color: #fff;
+  border: none;
+  margin-bottom: 20px;
+}
+
+.header-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 16px;
+}
+
+.header-title {
+  font-size: 22px;
+  font-weight: 600;
+  margin-bottom: 6px;
+}
+
+.header-description {
+  font-size: 14px;
+  line-height: 1.5;
+  opacity: 0.85;
+}
+
+.refresh-btn {
+  flex-shrink: 0;
+  border-radius: 8px;
+  color: #fff !important;
+  border-color: rgba(255, 255, 255, 0.4) !important;
+  --mdc-outlined-button-label-text-color: #fff;
+}
+
+.refresh-btn:hover {
+  border-color: rgba(255, 255, 255, 0.7) !important;
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.inline-spinner {
+  margin-left: 8px;
+}
+
+.table-card {
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.review-table {
+  width: 100%;
+}
+
+.file-name-cell {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: 500;
+}
+
+.file-cell-icon {
+  font-size: 18px;
+  width: 18px;
+  height: 18px;
+  color: var(--cs-color-text-secondary);
+}
+
+.status-badge {
+  display: inline-block;
+  padding: 3px 10px;
+  border-radius: 12px;
+  font-size: 12px;
+  font-weight: 500;
+  text-transform: capitalize;
+}
+
+.status-success {
+  background: #e6f4ea;
+  color: var(--cs-color-status-success);
+}
+
+.status-info {
+  background: var(--cs-color-primary-light);
+  color: var(--cs-color-status-info);
+}
+
+.status-error {
+  background: #fdf0f0;
+  color: var(--cs-color-status-error);
+}
+
+.status-default {
+  background: #f2f3f3;
+  color: var(--cs-color-text-secondary);
+}
+
+.view-btn {
+  border-radius: 6px;
+  font-size: 13px;
+  height: 32px;
+  line-height: 32px;
+}
+
+.empty-state {
+  text-align: center;
+  padding: 64px 24px;
+  background: var(--cs-color-bg-container);
+  border: 1px solid var(--cs-color-border);
+  border-radius: 12px;
+}
+
+.empty-icon {
+  font-size: 56px;
+  width: 56px;
+  height: 56px;
+  color: #aab7b8;
+  margin-bottom: 16px;
+}
+
+.empty-title {
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--cs-color-text-heading);
+  margin-bottom: 6px;
+}
+
+.empty-description {
+  font-size: 14px;
+  color: var(--cs-color-text-secondary);
+  margin-bottom: 20px;
+}
+
+.load-more {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}

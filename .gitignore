@@ -1,0 +1,78 @@
+# See https://help.github.com/ignore-files/ for more about ignoring files.
+
+### Cloud9 ###
+# Cloud9 IDE - https://c9.io
+.c9revisions
+.c9
+
+### Node ###
+# Logs
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+lerna-debug.log*
+.pnpm-debug.log*
+
+# Dependency directories
+node_modules/
+jspm_packages/
+
+# TypeScript cache
+*.tsbuildinfo
+
+# Optional npm cache directory
+.npm
+
+# Profiling files
+chrome-profiler-events*.json
+
+# Only exists if Bazel was run
+/bazel-out
+
+### Angular ###
+# Compiled output
+frontend/dist/
+frontend/tmp/
+frontend/out-tsc/
+
+# Angular cache
+frontend/.angular/
+
+### CDK ###
+# CDK output
+infra/cdk.out/
+
+### Generated files ###
+# Frontend config (generated from CDK stack outputs)
+frontend/src/config/aws-config.json
+
+### IDEs and editors ###
+/.idea
+.project
+.classpath
+.c9/
+*.launch
+.settings/
+*.sublime-workspace
+
+### VisualStudioCode ###
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+!.vscode/*.code-snippets
+.history/
+*.vsix
+
+### System files ###
+._*
+.DS_Store
+Thumbs.db
+
+### Environment ###
+.env
+.env.local
+.env.*.local

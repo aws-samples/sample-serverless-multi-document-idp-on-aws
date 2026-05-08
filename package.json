@@ -1,0 +1,20 @@
+{
+  "name": "serverless-multi-document-idp-on-aws",
+  "version": "1.0.0",
+  "private": true,
+  "description": "A full-stack serverless application for intelligent document processing using AWS Bedrock Data Automation.",
+  "scripts": {
+    "install:all": "npm install --prefix frontend && npm install --prefix infra",
+    "deploy": "npm run infra:deploy && ./scripts/deploy-frontend.sh",
+    "destroy": "npm run infra:destroy",
+    "frontend:start": "npm start --prefix frontend",
+    "frontend:build": "npm run build --prefix frontend",
+    "infra:deploy": "npm run deploy --prefix infra",
+    "infra:destroy": "npm run destroy --prefix infra",
+    "infra:synth": "npm run synth --prefix infra",
+    "generate-config": "./scripts/generate-config.sh",
+    "deploy-frontend": "./scripts/deploy-frontend.sh",
+    "test": "npm test --prefix infra && npm run test:unit --prefix frontend"
+  },
+  "license": "MIT-0"
+}

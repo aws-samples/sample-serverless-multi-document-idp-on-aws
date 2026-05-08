@@ -1,0 +1,40 @@
+<nav class="sidebar-nav">
+  <div class="sidebar-brand" routerLink="/home">
+    <mat-icon class="brand-icon">description</mat-icon>
+    <span class="sidebar-title">IDP</span>
+  </div>
+
+  <div class="sidebar-divider"></div>
+
+  <ul class="nav-list">
+    <li>
+      <a routerLink="/home" routerLinkActive="active" class="nav-item">
+        <mat-icon>home</mat-icon>
+        <span>Home</span>
+      </a>
+    </li>
+    <li>
+      <a routerLink="/upload" routerLinkActive="active" class="nav-item">
+        <mat-icon>cloud_upload</mat-icon>
+        <span>Upload</span>
+      </a>
+    </li>
+    <li>
+      <a routerLink="/review" routerLinkActive="active" class="nav-item">
+        <mat-icon>description</mat-icon>
+        <span>Review</span>
+      </a>
+    </li>
+  </ul>
+
+  <div class="sidebar-spacer"></div>
+
+  <div class="sidebar-divider"></div>
+
+  <div class="sidebar-footer">
+    <button class="sign-out-btn" (click)="signOut()">
+      <mat-icon>logout</mat-icon>
+      <span>Sign Out</span>
+    </button>
+  </div>
+</nav>

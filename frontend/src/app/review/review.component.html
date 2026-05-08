@@ -1,0 +1,83 @@
+<mat-card class="header-card" appearance="outlined">
+  <mat-card-content>
+    <div class="header-row">
+      <div>
+        <h2 class="header-title">Review Documents</h2>
+        <p class="header-description">
+          Access and review your processed documents. View extracted information and validate data efficiently.
+        </p>
+      </div>
+      <button mat-stroked-button (click)="refreshFiles()" *ngIf="files.length > 0" class="refresh-btn">
+        <mat-icon>refresh</mat-icon>
+        Refresh
+        <mat-spinner *ngIf="isRefreshing" diameter="16" class="inline-spinner"></mat-spinner>
+      </button>
+    </div>
+  </mat-card-content>
+</mat-card>
+
+<mat-card appearance="outlined" class="table-card" *ngIf="files.length > 0">
+  <table mat-table [dataSource]="files" class="review-table">
+    <ng-container matColumnDef="name">
+      <th mat-header-cell *matHeaderCellDef>File Name</th>
+      <td mat-cell *matCellDef="let file">
+        <div class="file-name-cell">
+          <mat-icon class="file-cell-icon">description</mat-icon>
+          {{ file.name }}
+        </div>
+      </td>
+    </ng-container>
+
+    <ng-container matColumnDef="status">
+      <th mat-header-cell *matHeaderCellDef>Status</th>
+      <td mat-cell *matCellDef="let file">
+        <span class="status-badge" [ngClass]="getStatusClass(file.status)">
+          {{ file.status }}
+        </span>
+      </td>
+    </ng-container>
+
+    <ng-container matColumnDef="userId">
+      <th mat-header-cell *matHeaderCellDef>Created By</th>
+      <td mat-cell *matCellDef="let file">{{ file.userId }}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="createdAt">
+      <th mat-header-cell *matHeaderCellDef>Created</th>
+      <td mat-cell *matCellDef="let file">{{ file.createdAt }}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="processingTime">
+      <th mat-header-cell *matHeaderCellDef>Processing</th>
+      <td mat-cell *matCellDef="let file">{{ processingTime(file) }}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="actions">
+      <th mat-header-cell *matHeaderCellDef>Actions</th>
+      <td mat-cell *matCellDef="let file">
+        <a mat-flat-button color="primary" class="view-btn"
+           *ngIf="file.status?.toLowerCase() === 'completed'"
+           [routerLink]="['/review-detail', file.fileId]">
+          View
+        </a>
+      </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table>
+</mat-card>
+
+<div *ngIf="files.length === 0" class="empty-state">
+  <mat-icon class="empty-icon">folder_open</mat-icon>
+  <p class="empty-title">No documents yet</p>
+  <p class="empty-description">Upload a document to get started with processing.</p>
+  <a mat-flat-button color="primary" routerLink="/upload">
+    <mat-icon>cloud_upload</mat-icon>
+    Upload Document
+  </a>
+</div>
+
+<div *ngIf="hasMore" class="load-more">
+  <button mat-stroked-button color="primary" (click)="loadMore()">Load More</button>
+</div>

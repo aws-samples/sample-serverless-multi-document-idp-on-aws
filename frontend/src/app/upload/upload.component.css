@@ -1,0 +1,137 @@
+.header-card {
+  border-radius: 12px;
+  background: linear-gradient(135deg, #0f1b2a 0%, #0a3a6b 100%);
+  color: #fff;
+  border: none;
+  margin-bottom: 20px;
+}
+
+.header-title {
+  font-size: 22px;
+  font-weight: 600;
+  margin-bottom: 6px;
+}
+
+.header-description {
+  font-size: 14px;
+  line-height: 1.6;
+  opacity: 0.85;
+}
+
+.upload-card {
+  border-radius: 12px;
+}
+
+.upload-zone {
+  border: 2px dashed var(--cs-color-border);
+  border-radius: 10px;
+  padding: 48px 24px;
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  background: #fafbfc;
+}
+
+.upload-zone:hover {
+  border-color: var(--cs-color-primary);
+  background: var(--cs-color-primary-light);
+}
+
+.upload-zone.has-file {
+  border-color: var(--cs-color-primary);
+  border-style: solid;
+  background: var(--cs-color-primary-light);
+}
+
+.upload-zone.has-error {
+  border-color: var(--cs-color-status-error);
+}
+
+.upload-zone-icon {
+  font-size: 48px;
+  width: 48px;
+  height: 48px;
+  color: var(--cs-color-primary);
+  margin-bottom: 12px;
+}
+
+.upload-label {
+  font-size: 15px;
+  font-weight: 500;
+  color: var(--cs-color-text-heading);
+  margin-bottom: 4px;
+}
+
+.upload-hint {
+  font-size: 13px;
+  color: var(--cs-color-text-secondary);
+}
+
+.file-info {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 16px;
+  margin-top: 16px;
+  background: var(--cs-color-primary-light);
+  border-radius: 8px;
+  border: 1px solid #c2ddf7;
+}
+
+.file-info-left {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.file-icon {
+  color: var(--cs-color-primary);
+}
+
+.file-details {
+  display: flex;
+  flex-direction: column;
+}
+
+.file-name {
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--cs-color-text-heading);
+}
+
+.file-size {
+  font-size: 12px;
+  color: var(--cs-color-text-secondary);
+}
+
+.upload-progress {
+  margin-top: 16px;
+  border-radius: 4px;
+}
+
+.error-banner {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 16px;
+  margin-top: 16px;
+  background: #fdf0f0;
+  border: 1px solid #f5c6c6;
+  border-radius: 8px;
+  color: var(--cs-color-status-error);
+  font-size: 14px;
+}
+
+.error-banner mat-icon {
+  font-size: 20px;
+  width: 20px;
+  height: 20px;
+}
+
+.upload-btn {
+  width: 100%;
+  margin-top: 20px;
+  height: 44px;
+  font-size: 15px;
+  border-radius: 8px;
+}

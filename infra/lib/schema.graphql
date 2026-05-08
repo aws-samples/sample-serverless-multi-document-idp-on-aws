@@ -1,0 +1,55 @@
+type File {
+  fileId: ID!
+  userId: String
+  name: String
+  contentType: String
+  size: Int
+  status: String
+  inputPathPrefix: String
+  outputPathPrefix: String
+  createdAt: String
+  updatedAt: String
+}
+
+type FileData {
+  fileDataId: ID!
+  documentType: String
+  metadata: AWSJSON
+  createdAt: String
+  updatedAt: String
+  fileId: ID
+}
+
+type FileConnection {
+  items: [File]
+  nextToken: String
+}
+
+input CreateFileInput {
+  fileId: ID!
+  userId: String
+  name: String
+  contentType: String
+  size: Int
+  status: String
+  inputPathPrefix: String
+  outputPathPrefix: String
+  createdAt: String
+}
+
+input UpdateFileInput {
+  fileId: ID!
+  status: String
+}
+
+type Query {
+  getFile(fileId: ID!): File
+  listFiles(limit: Int, nextToken: String): FileConnection
+  getFileData(fileDataId: ID!): FileData
+  getFileDataByFileId(fileId: ID!): FileData
+}
+
+type Mutation {
+  createFile(input: CreateFileInput!): File
+  updateFile(input: UpdateFileInput!): File
+}

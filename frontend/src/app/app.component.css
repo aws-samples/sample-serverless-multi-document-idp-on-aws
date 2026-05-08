@@ -1,0 +1,53 @@
+:host {
+  display: block;
+  height: 100%;
+}
+
+/* Authenticated app shell */
+.app-shell {
+  display: flex;
+  min-height: 100vh;
+}
+
+.sidebar {
+  width: var(--cs-sidebar-width);
+  min-height: 100vh;
+  position: fixed;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  z-index: 100;
+  background: var(--cs-sidebar-bg);
+}
+
+.main-content {
+  flex: 1;
+  margin-left: var(--cs-sidebar-width);
+  width: calc(100% - var(--cs-sidebar-width));
+  padding: 28px 32px;
+  background: var(--cs-color-bg-layout);
+  min-height: 100vh;
+}
+
+/* Auth page */
+.auth-page {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--cs-color-bg-layout);
+}
+
+.auth-form-title {
+  padding: 20px 32px 0;
+  font-size: 17px;
+  font-weight: 500;
+  color: var(--cs-color-text-heading);
+}
+
+@media (max-width: 960px) {
+  .sidebar { display: none; }
+  .main-content { margin-left: 0; width: 100%; padding: 16px; }
+  .auth-heading { font-size: 24px; }
+  .auth-form-wrapper { max-width: 100%; }
+}
