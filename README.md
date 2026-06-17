@@ -1,6 +1,6 @@
 # Serverless Multi-Document Intelligent Document Processing on AWS
 
-A full-stack serverless application that automates document processing using AWS Bedrock Data Automation (BDA). Upload documents through an Angular web interface hosted on AWS Amplify, and get structured data extraction powered by a CDK-deployed backend.
+A full-stack serverless application that automates document processing using AWS Bedrock Data Automation (BDA). Upload documents through an Angular 22 web interface hosted on AWS Amplify, and get structured data extraction powered by a CDK-deployed backend.
 
 > **⚠️ Disclaimer — sample code only.** This repository is a sample intended to demonstrate a working IDP pipeline on AWS. Before deploying beyond a POC environment, follow your organization's standards and review processes for security, reliability, performance, and compliance, and customize the code and infrastructure to match those requirements.
 >
