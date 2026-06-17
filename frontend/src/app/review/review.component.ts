@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
 import { NgClass } from '@angular/common';
 import { RouterLink } from '@angular/router';
 import { ApiService, FileRecord } from '../services/api.service';
@@ -14,6 +14,7 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
   standalone: true,
   imports: [NgClass, RouterLink, MatCardModule, MatButtonModule, MatIconModule, MatTableModule, MatChipsModule, MatProgressSpinnerModule],
   templateUrl: './review.component.html',
+  changeDetection: ChangeDetectionStrategy.Eager,
   styleUrl: './review.component.css'
 })
 export class ReviewComponent implements OnInit {

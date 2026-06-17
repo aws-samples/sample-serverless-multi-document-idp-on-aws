@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 
 import { getUrl } from 'aws-amplify/storage';
@@ -19,6 +19,7 @@ import { MatDividerModule } from '@angular/material/divider';
   standalone: true,
   imports: [MatCardModule, MatButtonModule, MatIconModule, MatTableModule, MatDividerModule],
   templateUrl: './review-detail.component.html',
+  changeDetection: ChangeDetectionStrategy.Eager,
   styleUrl: './review-detail.component.css'
 })
 export class ReviewDetailComponent implements OnInit {

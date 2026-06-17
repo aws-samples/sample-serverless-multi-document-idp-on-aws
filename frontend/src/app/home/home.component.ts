@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ChangeDetectionStrategy } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { MatCardModule } from '@angular/material/card';
 import { MatButtonModule } from '@angular/material/button';
@@ -9,6 +9,7 @@ import { MatIconModule } from '@angular/material/icon';
   standalone: true,
   imports: [RouterLink, MatCardModule, MatButtonModule, MatIconModule],
   templateUrl: './home.component.html',
+  changeDetection: ChangeDetectionStrategy.Eager,
   styleUrl: './home.component.css'
 })
 export class HomeComponent {}

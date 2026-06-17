@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ChangeDetectionStrategy } from '@angular/core';
 import { NavbarComponent } from './navbar/navbar.component';
 import { ContentComponent } from './content/content.component';
 import { AmplifyAuthenticatorModule, AuthenticatorService } from '@aws-amplify/ui-angular';
@@ -38,6 +38,7 @@ Amplify.configure({
   standalone: true,
   imports: [NavbarComponent, ContentComponent, AmplifyAuthenticatorModule, MatSidenavModule, MatIconModule],
   templateUrl: './app.component.html',
+  changeDetection: ChangeDetectionStrategy.Eager,
   styleUrl: './app.component.css'
 })
 export class AppComponent {

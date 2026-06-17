@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ChangeDetectionStrategy } from '@angular/core';
 import { Router } from '@angular/router';
 
 import { uploadData } from 'aws-amplify/storage';
@@ -15,6 +15,7 @@ import { MatProgressBarModule } from '@angular/material/progress-bar';
   standalone: true,
   imports: [MatCardModule, MatButtonModule, MatIconModule, MatProgressBarModule],
   templateUrl: './upload.component.html',
+  changeDetection: ChangeDetectionStrategy.Eager,
   styleUrl: './upload.component.css'
 })
 export class UploadComponent {

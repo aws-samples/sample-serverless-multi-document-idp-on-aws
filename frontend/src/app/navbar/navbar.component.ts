@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ChangeDetectionStrategy } from '@angular/core';
 import { RouterLink, RouterLinkActive } from '@angular/router';
 import { AuthenticatorService } from '@aws-amplify/ui-angular';
 
@@ -11,6 +11,7 @@ import { MatDividerModule } from '@angular/material/divider';
   standalone: true,
   imports: [RouterLink, RouterLinkActive, MatIconModule, MatButtonModule, MatDividerModule],
   templateUrl: './navbar.component.html',
+  changeDetection: ChangeDetectionStrategy.Eager,
   styleUrl: './navbar.component.css'
 })
 export class NavbarComponent {
