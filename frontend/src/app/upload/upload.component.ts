@@ -1,6 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, ChangeDetectionStrategy } from '@angular/core';
 import { Router } from '@angular/router';
-import { CommonModule } from '@angular/common';
+
 import { uploadData } from 'aws-amplify/storage';
 import { getCurrentUser } from 'aws-amplify/auth';
 import { v4 as uuidv4 } from 'uuid';
@@ -13,8 +13,9 @@ import { MatProgressBarModule } from '@angular/material/progress-bar';
 @Component({
   selector: 'app-upload',
   standalone: true,
-  imports: [CommonModule, MatCardModule, MatButtonModule, MatIconModule, MatProgressBarModule],
+  imports: [MatCardModule, MatButtonModule, MatIconModule, MatProgressBarModule],
   templateUrl: './upload.component.html',
+  changeDetection: ChangeDetectionStrategy.Eager,
   styleUrl: './upload.component.css'
 })
 export class UploadComponent {

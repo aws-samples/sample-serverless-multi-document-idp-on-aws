@@ -1,6 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
-import { CommonModule } from '@angular/common';
+
 import { getUrl } from 'aws-amplify/storage';
 import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
 import { FileData, DocumentType, DisplayField, normalizeDocumentType } from '../../models/common.model';
@@ -17,8 +17,9 @@ import { MatDividerModule } from '@angular/material/divider';
 @Component({
   selector: 'app-review-detail',
   standalone: true,
-  imports: [CommonModule, MatCardModule, MatButtonModule, MatIconModule, MatTableModule, MatDividerModule],
+  imports: [MatCardModule, MatButtonModule, MatIconModule, MatTableModule, MatDividerModule],
   templateUrl: './review-detail.component.html',
+  changeDetection: ChangeDetectionStrategy.Eager,
   styleUrl: './review-detail.component.css'
 })
 export class ReviewDetailComponent implements OnInit {
