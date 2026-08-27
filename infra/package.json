@@ -18,22 +18,19 @@
     "@aws-sdk/client-bedrock-data-automation-runtime": "^3.800.0",
     "@aws-sdk/client-dynamodb": "^3.800.0",
     "@aws-sdk/client-s3": "^3.800.0",
-    "aws-cdk-lib": "^2.262.0",
+    "aws-cdk-lib": "^2.266.0",
     "cdk-nag": "^2.38.1",
     "constructs": "^10.4.2",
     "source-map-support": "^0.5.21"
   },
   "devDependencies": {
     "@types/jest": "^29.5.14",
-    "aws-cdk": "^2.190.0",
+    "aws-cdk": "^2.1133.0",
     "esbuild": "^0.28.1",
     "jest": "^29.7.0",
     "ts-jest": "^29.2.5",
     "ts-node": "^10.9.2",
     "typescript": "~5.7.0"
-  },
-  "overrides": {
-    "brace-expansion": "^5.0.8"
   },
   "allowScripts": {
     "esbuild@0.28.1": true,
