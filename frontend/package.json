@@ -44,7 +44,8 @@
   "overrides": {
     "tar": "^7.5.11",
     "serialize-javascript": "^7.0.5",
-    "uuid": "^14.0.0"
+    "uuid": "^14.0.0",
+    "nanoid": "^3.3.18"
   },
   "allowScripts": {
     "@parcel/watcher@2.6.0": true,
