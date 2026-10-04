@@ -21,7 +21,7 @@
     "@angular/material": "^22.0.6",
     "@angular/platform-browser": "~22.0.8",
     "@angular/platform-browser-dynamic": "~22.0.8",
-    "@angular/router": "~22.0.8",
+    "@angular/router": "~22.2.0",
     "@aws-amplify/ui-angular": "^5.3.3",
     "aws-amplify": "^6.16.0",
     "rxjs": "~7.8.0",
